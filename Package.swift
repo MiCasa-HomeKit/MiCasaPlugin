@@ -21,8 +21,5 @@ let package = Package(
         .target(
             name: "mi-casa-plugin",
             dependencies: []),
-        .testTarget(
-            name: "mi-casa-pluginTests",
-            dependencies: ["mi-casa-plugin"]),
     ]
 )
