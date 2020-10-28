@@ -48,18 +48,18 @@ open class MiCasaAccessoryPlugin: MiCasaPlugin {
 
      - Returns: The accessories that are provided by this plugin.
      */
-    func accessories() -> [Accessory] {
+    public func accessories() -> [Accessory] {
         fatalError("You have to override the method `accessories()`.")
     }
 
-    func identify(accessory: Accessory) {
+    public func identify(accessory: Accessory) {
         apiGateway
             .info(
                 plugin: self,
                 message: "Requested identification of accessory \(String(describing: accessory.info.name.value ?? ""))")
     }
 
-    func characteristic<T>(
+    public func characteristic<T>(
         _ characteristic: GenericCharacteristic<T>,
         ofService service: Service,
         ofAccessory accessory: Accessory,
