@@ -16,11 +16,35 @@
 
 import Foundation
 
+/**
+ This is the base class for general MiCasa plugins.
+
+ General MiCasa plugins don't provide any HomeKit accessories.
+ They can be used to provide web-based UIs, REST services for
+ accessing MiCasa from apps etc.
+
+ - Author: Thomas Bonk <thomas@meandmymac.de>
+ */
 open class MiCasaPlugin {
+
+    // MARK: - Private Propereties
+
+    internal private(set) var apiGateway: ApiGateway!
+
+    internal private(set) var configuration: [String:Any]!
+
 
     // MARK: - Initialization
 
-    init() {
-        
+    /**
+     Initialize the plugin.
+
+     - Parameters:
+        - apiGateway: The API gateway that provides MiCasa functions
+        - configuration: The configuration for the plugin
+     */
+    public init(apiGateway gateway: ApiGateway, configuration: [String:Any]) {
+        self.apiGateway = gateway
+        self.configuration = configuration
     }
 }
