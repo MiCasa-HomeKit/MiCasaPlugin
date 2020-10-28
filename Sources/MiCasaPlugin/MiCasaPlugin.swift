@@ -25,7 +25,7 @@ import Foundation
 
  - Author: Thomas Bonk <thomas@meandmymac.de>
  */
-open class MiCasaPlugin {
+open class MiCasaPlugin: Hashable {
 
     // MARK: - Private Propereties
 
@@ -46,6 +46,21 @@ open class MiCasaPlugin {
     public init(apiGateway gateway: ApiGateway, configuration: [String:Any]) {
         self.apiGateway = gateway
         self.configuration = configuration
+    }
+
+
+    // MARK: - Hashable
+
+    public static func == (lhs: MiCasaPlugin, rhs: MiCasaPlugin) -> Bool {
+        fatalError("You have to override the method `==(lhs:rhs:)`.")
+    }
+
+    public var hashValue: Int {
+        fatalError("You have to override the property `hashValue`.")
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        fatalError("You have to override the method `hash(into:)`.")
     }
 
 
