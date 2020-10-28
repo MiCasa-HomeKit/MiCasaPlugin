@@ -47,4 +47,19 @@ open class MiCasaPlugin {
         self.apiGateway = gateway
         self.configuration = configuration
     }
+
+
+    // MARK: - API
+
+    /// This method starts the plugin.
+    public func start() {
+        // Empty by design
+    }
+
+    /// This method stops the plugin.
+    ///
+    /// The method is called before the bridge stops or is about to restart.
+    public func stop() {
+        // Empty by design
+    }
 }
