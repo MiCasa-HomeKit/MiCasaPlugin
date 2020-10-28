@@ -16,9 +16,11 @@
 
 import Foundation
 
-public protocol MiCasaPlugin {
+open class MiCasaPlugin {
 
     // MARK: - Initialization
 
-    init()
+    init() {
+        
+    }
 }

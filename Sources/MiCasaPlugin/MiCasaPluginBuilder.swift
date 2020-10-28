@@ -31,9 +31,9 @@ import Foundation
  * the plugin builder and returns the instace. The function implementation should
  * look like this:
  * ```swift
- * @_cdecl("createPluginInstance")
- * public func createPluginInstance() -> UnsafeMutableRawPointer {
- *   return Unmanaged.passRetained(PluginABuilder()).toOpaque()
+ * @_cdecl("createPluginBuilder")
+ * public func createPluginBuilder() -> UnsafeMutableRawPointer {
+ *   return Unmanaged.passRetained(PluginBuilder()).toOpaque()
  * }
  * ```
  *
