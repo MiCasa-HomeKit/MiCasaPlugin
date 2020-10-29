@@ -44,22 +44,22 @@ open class MiCasaPluginBuilder<PluginType: MiCasaPlugin> {
     // MARK: - Plugin Properties
 
     /// The plugin id. The id must be unique and constant; it mustn't change.
-    public var pluginId: UUID {
+    open var pluginId: UUID {
         fatalError("You have to override the property `pluginId`.")
     }
 
     /// The plugin name. The plugin name must be unique and is a technical name.
-    public var pluginName: String {
+    open var pluginName: String {
         fatalError("You have to override the property `pluginName`.")
     }
 
     /// The plugin version.
-    public var pluginVersion: String {
+    open var pluginVersion: String {
         fatalError("You have to override the property `pluginVersion`.")
     }
 
     /// Printable description of the plugin.
-    public var description: String {
+    open var description: String {
         return "\(pluginName)-\(pluginVersion)(\(pluginId))"
     }
 
