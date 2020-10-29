@@ -50,7 +50,7 @@ open class MiCasaPluginBuilder<PluginType: MiCasaPlugin> {
     // MARK: - Plugin Properties
 
     /// The plugin id. The id must be unique and constant; it mustn't change.
-    open var pluginId: UUID {
+    open var pluginId: String {
         fatalError("You have to override the property `pluginId`.")
     }
 
