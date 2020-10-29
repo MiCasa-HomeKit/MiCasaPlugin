@@ -29,9 +29,8 @@ open class MiCasaPlugin: Hashable {
 
     // MARK: - Private Propereties
 
-    internal private(set) var apiGateway: ApiGateway!
-
-    internal private(set) var configuration: [String:Any]!
+    public private(set) var apiGateway: ApiGateway!
+    public private(set) var configuration: [String:Any]!
 
 
     // MARK: - Initialization
