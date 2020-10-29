@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import HAP
 
 /**
  This is the base class for accessory MiCasa plugins.
@@ -48,27 +47,25 @@ open class MiCasaAccessoryPlugin: MiCasaPlugin {
 
      - Returns: The accessories that are provided by this plugin.
      */
-    open func accessories() -> [Accessory] {
+    open func accessories() -> [MiCasaAccessory] {
         fatalError("You have to override the method `accessories()`.")
     }
 
-    open func identify(accessory: Accessory) {
+    open func identify(accessory: MiCasaAccessory) {
         apiGateway
             .info(
                 plugin: self,
-                message: "Requested identification of accessory \(String(describing: accessory.info.name.value ?? ""))")
+                message: "Requested identification of accessory \(String(describing: accessory.name))")
     }
 
     open func characteristic<T>(
-        _ characteristic: GenericCharacteristic<T>,
-        ofService service: Service,
-        ofAccessory accessory: Accessory,
+        ofAccessory accessory: MiCasaAccessory,
         didChangeValue newValue: T?) {
 
         apiGateway
             .info(
                 plugin: self,
-                message: "Characteristic \(characteristic) in service \(service.type) of "
-                    + "accessory \(accessory.info.name.value ?? "") did change: \(String(describing: newValue))")
+                message: "Characteristic of "
+                    + "accessory \(accessory.name) did change: \(String(describing: newValue))")
     }
 }

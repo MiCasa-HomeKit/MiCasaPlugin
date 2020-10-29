@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import HAP
 
 /**
  API Gateway for MiCasa plugins.
@@ -27,7 +26,7 @@ public protocol ApiGateway {
     // MARK: - Bridge API
 
     /// All accessories that are currently provided by MiCasa
-    var accessories: [Accessory] { get }
+    var accessories: [MiCasaAccessory] { get }
 
 
     // MARK: - Logging
