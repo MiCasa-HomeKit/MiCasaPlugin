@@ -50,7 +50,7 @@ open class MiCasaPlugin: Hashable {
 
     // MARK: - Hashable
 
-    open static func == (lhs: MiCasaPlugin, rhs: MiCasaPlugin) -> Bool {
+    public static func == (lhs: MiCasaPlugin, rhs: MiCasaPlugin) -> Bool {
         fatalError("You have to override the method `==(lhs:rhs:)`.")
     }
 
