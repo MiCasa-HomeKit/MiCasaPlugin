@@ -50,15 +50,15 @@ open class MiCasaPlugin: Hashable {
 
     // MARK: - Hashable
 
-    public static func == (lhs: MiCasaPlugin, rhs: MiCasaPlugin) -> Bool {
+    open static func == (lhs: MiCasaPlugin, rhs: MiCasaPlugin) -> Bool {
         fatalError("You have to override the method `==(lhs:rhs:)`.")
     }
 
-    public var hashValue: Int {
+    open var hashValue: Int {
         fatalError("You have to override the property `hashValue`.")
     }
 
-    public func hash(into hasher: inout Hasher) {
+    open func hash(into hasher: inout Hasher) {
         fatalError("You have to override the method `hash(into:)`.")
     }
 
@@ -66,14 +66,14 @@ open class MiCasaPlugin: Hashable {
     // MARK: - API
 
     /// This method starts the plugin.
-    public func start() {
+    open func start() {
         // Empty by design
     }
 
     /// This method stops the plugin.
     ///
     /// The method is called before the bridge stops or is about to restart.
-    public func stop() {
+    open func stop() {
         // Empty by design
     }
 }
