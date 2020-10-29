@@ -41,6 +41,12 @@ import Foundation
  */
 open class MiCasaPluginBuilder<PluginType: MiCasaPlugin> {
 
+    // MARK: - Initialization
+
+    public init() {
+    }
+
+
     // MARK: - Plugin Properties
 
     /// The plugin id. The id must be unique and constant; it mustn't change.
