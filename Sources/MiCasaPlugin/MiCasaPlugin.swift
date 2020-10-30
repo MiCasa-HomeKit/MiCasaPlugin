@@ -16,6 +16,11 @@
 
 import Foundation
 
+public enum PluginType {
+    case general
+    case accesory
+}
+
 /**
  This is the base class for general MiCasa plugins.
 
@@ -26,6 +31,13 @@ import Foundation
  - Author: Thomas Bonk <thomas@meandmymac.de>
  */
 open class MiCasaPlugin: Hashable {
+
+    // MARK: - Public Properties
+
+    public var type: PluginType {
+        return .general
+    }
+
 
     // MARK: - Private Propereties
 
