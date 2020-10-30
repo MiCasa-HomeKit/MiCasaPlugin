@@ -1,3 +1,3 @@
-# mi-casa-plugin
+# MiCasaPlugin
 
 This package provides the base classes for developing MiCasa plugins.

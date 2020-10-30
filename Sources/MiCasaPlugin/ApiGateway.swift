@@ -26,7 +26,7 @@ public protocol ApiGateway {
     // MARK: - Bridge API
 
     /// All accessories that are currently provided by MiCasa
-    var accessories: [MiCasaAccessory] { get }
+    var accessories: [Accessory] { get }
 
 
     // MARK: - Logging
