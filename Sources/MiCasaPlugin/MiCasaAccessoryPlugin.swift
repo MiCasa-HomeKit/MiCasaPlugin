@@ -15,6 +15,7 @@
  */
 
 import Foundation
+import HAP
 
 /**
  This is the base class for accessory MiCasa plugins.
@@ -52,10 +53,7 @@ open class MiCasaAccessoryPlugin: MiCasaPlugin {
     }
 
     open func identify(accessory: Accessory) {
-        apiGateway
-            .info(
-                plugin: self,
-                message: "Requested identification of accessory \(String(describing: accessory.name))")
+
     }
 
     open func characteristic<T>(
@@ -64,10 +62,5 @@ open class MiCasaAccessoryPlugin: MiCasaPlugin {
         ofAccessory accessory: Accessory,
         didChangeValue newValue: T?) {
 
-        apiGateway
-            .info(
-                plugin: self,
-                message: "Characteristic of "
-                    + "accessory \(accessory.name) did change: \(String(describing: newValue))")
     }
 }

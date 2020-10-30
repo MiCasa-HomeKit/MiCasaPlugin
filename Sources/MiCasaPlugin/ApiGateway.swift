@@ -15,6 +15,7 @@
  */
 
 import Foundation
+import HAP
 
 /**
  API Gateway for MiCasa plugins.
