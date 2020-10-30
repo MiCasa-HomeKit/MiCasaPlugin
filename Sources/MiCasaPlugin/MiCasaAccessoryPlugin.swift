@@ -35,7 +35,7 @@ open class MiCasaAccessoryPlugin: MiCasaPlugin {
          - apiGateway: The API gateway that provides MiCasa functions
          - configuration: The configuration for the plugin
      */
-    public override init(apiGateway gateway: ApiGateway, configuration: [String:Any]) {
+    public override init(apiGateway gateway: ApiGateway, configuration: Data) {
         super.init(apiGateway: gateway, configuration: configuration)
     }
 

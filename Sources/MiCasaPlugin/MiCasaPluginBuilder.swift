@@ -79,7 +79,7 @@ open class MiCasaPluginBuilder<PluginType: MiCasaPlugin> {
 
        - Returns: An instance of the plugin
      */
-    open func build(apiGateway: ApiGateway, configuration: [String:Any]) -> PluginType {
+    open func build(apiGateway: ApiGateway, configuration: Data) -> PluginType {
         fatalError("You have to override the method 'build()'.")
     }
 }

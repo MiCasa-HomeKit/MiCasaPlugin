@@ -30,7 +30,7 @@ open class MiCasaPlugin: Hashable {
     // MARK: - Private Propereties
 
     public private(set) var apiGateway: ApiGateway!
-    public private(set) var configuration: [String:Any]!
+    public private(set) var configuration: Data!
 
 
     // MARK: - Initialization
@@ -42,7 +42,7 @@ open class MiCasaPlugin: Hashable {
         - apiGateway: The API gateway that provides MiCasa functions
         - configuration: The configuration for the plugin
      */
-    public init(apiGateway gateway: ApiGateway, configuration: [String:Any]) {
+    public init(apiGateway gateway: ApiGateway, configuration: Data) {
         self.apiGateway = gateway
         self.configuration = configuration
     }
