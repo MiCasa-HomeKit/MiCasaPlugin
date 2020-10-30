@@ -15,11 +15,8 @@
  */
 
 import Foundation
+import HAP
 
-public enum PluginType {
-    case general
-    case accessory
-}
 
 /**
  This is the base class for general MiCasa plugins.
@@ -31,13 +28,6 @@ public enum PluginType {
  - Author: Thomas Bonk <thomas@meandmymac.de>
  */
 open class MiCasaPlugin: Hashable {
-
-    // MARK: - Public Properties
-
-    public var type: PluginType {
-        return .general
-    }
-
 
     // MARK: - Private Propereties
 
@@ -87,5 +77,29 @@ open class MiCasaPlugin: Hashable {
     /// The method is called before the bridge stops or is about to restart.
     open func stop() {
         // Empty by design
+    }
+
+    // MARK: - Accessory API
+
+    /**
+     This method must be overriden and has to return the accessories that are
+     provided by this plugin.
+
+     - Returns: The accessories that are provided by this plugin.
+     */
+    open func accessories() -> [Accessory] {
+        return []
+    }
+
+    open func identify(accessory: Accessory) {
+
+    }
+
+    open func characteristic<T>(
+        _ characteristic: GenericCharacteristic<T>,
+        ofService service: Service,
+        ofAccessory accessory: Accessory,
+        didChangeValue newValue: T?) {
+
     }
 }
