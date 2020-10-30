@@ -29,7 +29,7 @@ open class MiCasaAccessoryPlugin: MiCasaPlugin {
     // MARK: - Public Properties
 
     public override var type: PluginType {
-        return .accesory
+        return .accessory
     }
 
     // MARK: - Initialization

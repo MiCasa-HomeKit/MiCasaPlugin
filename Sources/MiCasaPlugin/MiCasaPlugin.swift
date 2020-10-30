@@ -18,7 +18,7 @@ import Foundation
 
 public enum PluginType {
     case general
-    case accesory
+    case accessory
 }
 
 /**
