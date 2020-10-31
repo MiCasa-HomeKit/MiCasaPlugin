@@ -8,3 +8,4 @@ before_install:
   - sudo apt install openssl libssl-dev libsodium-dev libcurl4-openssl-dev libavahi-compat-libdnssd-dev
 script:
   - swift build
+
