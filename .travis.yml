@@ -9,6 +9,7 @@ jobs:
     - wget https://swift.org/builds/swift-5.3-release/xcode/swift-5.3-RELEASE/swift-5.3-RELEASE-osx.pkg
     - sudo installer -pkg swift-5.3-RELEASE-osx.pkg -target /
     - export PATH="/Library/Developer/Toolchains/swift-5.3-RELEASE.xctoolchain/usr/bin:$PATH"
+    - brew install libsodium
     script:
     - swift --version
     - swift build
