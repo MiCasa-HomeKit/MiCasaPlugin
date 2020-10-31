@@ -1,6 +1,6 @@
 jobs:
   include:
-    - stage: macOS
+  - stage: macOS
     os: osx
     osx_image: xcode12.1
     language: swift
