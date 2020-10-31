@@ -1,32 +1,31 @@
-# os:
-#   - linux
-#     install:
-#       - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
-#       - sudo apt-get update
-#       - sudo apt install openssl libssl-dev libsodium-dev libcurl4-openssl-dev libavahi-compat-libdnssd-dev
-#   - osx
-# env:
-#   - SWIFT_VERSION=5.1.5
-#   - SWIFT_VERSION=5.3
-# language: generic
-# sudo: required
-# dist: bionic
-# osx_image: xcode12.1
-
-# script:
-#   - swift --version
-#   - swift build
-
-sudo: required
-dist: bionic
-before_install:
-  - wget -q -O - https://swift.org/keys/all-keys.asc | gpg --import -
-  - wget https://swift.org/builds/swift-5.3-release/ubuntu1804/swift-5.3-RELEASE/swift-5.3-RELEASE-ubuntu18.04.tar.gz
-  - tar xzf swift-5.3-RELEASE-ubuntu18.04.tar.gz
-  - export PATH=${PWD}/swift-5.3-RELEASE-ubuntu18.04/usr/bin:"${PATH}"
-  - sudo apt-get update
-  - sudo apt install openssl libssl-dev libsodium-dev libcurl4-openssl-dev libavahi-compat-libdnssd-dev
-script:
-  - swift --version
-  - swift build
-
+env:
+  global:
+  - SWIFT_BRANCH=swift-5.3-release
+  - SWIFT_VERSION=swift-5.3-RELEASE
+jobs:
+  include:
+  - stage: Linux
+    os: linux
+    language: generic
+    dist: bionic
+    sudo: required
+    install:
+    - sudo apt install openssl libssl-dev libsodium-dev libcurl4-openssl-dev libavahi-compat-libdnssd-dev
+    - curl https://swift.org/builds/$SWIFT_BRANCH/ubuntu1604/$SWIFT_VERSION/$SWIFT_VERSION-ubuntu18.04.tar.gz > $SWIFT_VERSION-ubuntu18.04.tar.gz
+    - tar xzf $SWIFT_VERSION-ubuntu18.04.tar.gz
+    - export PATH="$(pwd)/$SWIFT_VERSION-ubuntu18.04/usr/bin:$PATH"
+    script:
+    - swift --version
+    - swift build
+  - stage: macOS
+    os: osx
+    osx_image: xcode12.1
+    language: swift
+    sudo: required
+    install:
+    - wget https://swift.org/builds/$SWIFT_BRANCH/xcode/$SWIFT_VERSION/$SWIFT_VERSION-osx.pkg
+    - sudo installer -pkg $SWIFT_VERSION-osx.pkg -target /
+    - export PATH="/Library/Developer/Toolchains/$SWIFT_VERSION.xctoolchain/usr/bin:$PATH"
+    script:
+    - swift --version
+    - swift build
