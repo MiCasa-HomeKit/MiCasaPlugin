@@ -24,7 +24,7 @@
         "repositoryURL": "https://github.com/MiCasa-HomeKit/HAP.git",
         "state": {
           "branch": "master",
-          "revision": "c25c8e4f8d6c61dd2189fa99b80347b4239e79dd",
+          "revision": "d174b91c02123dd49a9c3a2cd4146e3fa2fdd797",
           "version": null
         }
       },
@@ -35,6 +35,24 @@
           "branch": null,
           "revision": "9b9e521b49e5b529c33f4abe35a00e144af51e00",
           "version": "3.1.0"
+        }
+      },
+      {
+        "package": "NetService",
+        "repositoryURL": "https://github.com/MiCasa-HomeKit/NetService.git",
+        "state": {
+          "branch": "master",
+          "revision": "04f5dd363159dae0efd54b1ffbaead0a8d3a999b",
+          "version": null
+        }
+      },
+      {
+        "package": "OpenSSL",
+        "repositoryURL": "https://github.com/Kitura/OpenSSL.git",
+        "state": {
+          "branch": null,
+          "revision": "80b04f33b086fc90e28d9ae159d43705fb348e16",
+          "version": "2.2.200"
         }
       },
       {
