@@ -32,7 +32,6 @@ open class MiCasaPlugin: Hashable {
     // MARK: - Private Propereties
 
     public private(set) var apiGateway: ApiGateway!
-    public private(set) var configuration: Data!
 
 
     // MARK: - Initialization
@@ -42,11 +41,10 @@ open class MiCasaPlugin: Hashable {
 
      - Parameters:
         - apiGateway: The API gateway that provides MiCasa functions
-        - configuration: The configuration for the plugin
+        - configuration: The configuration for the plugin as encoded JSON
      */
-    public init(apiGateway gateway: ApiGateway, configuration: Data) {
+    public init?(apiGateway gateway: ApiGateway, configuration: Data) throws {
         self.apiGateway = gateway
-        self.configuration = configuration
     }
 
 
@@ -67,15 +65,29 @@ open class MiCasaPlugin: Hashable {
 
     // MARK: - API
 
+    /// Convert the configuration given as JSON to a structured type.
+    ///
+    /// - Parameters:
+    ///   - json: The configuration as JSON data
+    ///
+    /// - Returns: The the configuration converted to a structured type.
+    open func configuration<T: Codable>(_ json: Data) throws -> T {
+        let decoder = JSONDecoder()
+
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+        return try decoder.decode(T.self, from: json)
+    }
+
     /// This method starts the plugin.
-    open func start() {
+    open func start() throws {
         // Empty by design
     }
 
     /// This method stops the plugin.
     ///
     /// The method is called before the bridge stops or is about to restart.
-    open func stop() {
+    open func stop() throws {
         // Empty by design
     }
 
@@ -87,11 +99,11 @@ open class MiCasaPlugin: Hashable {
 
      - Returns: The accessories that are provided by this plugin.
      */
-    open func accessories() -> [Accessory] {
+    open func accessories() throws -> [Accessory] {
         return []
     }
 
-    open func identify(accessory: Accessory) {
+    open func identify(accessory: Accessory) throws {
 
     }
 
@@ -99,7 +111,7 @@ open class MiCasaPlugin: Hashable {
         _ characteristic: GenericCharacteristic<T>,
         ofService service: Service,
         ofAccessory accessory: Accessory,
-        didChangeValue newValue: T?) {
+        didChangeValue newValue: T?) throws {
 
     }
 }
