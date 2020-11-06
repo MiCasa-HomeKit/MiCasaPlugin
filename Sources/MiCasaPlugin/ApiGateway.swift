@@ -28,6 +28,8 @@ public protocol ApiGateway {
   /// All accessories that are currently provided by MiCasa
   var accessories: [Accessory] { get }
 
+  /// Restart MiCasa
+  func restart()
 
   // MARK: - Logging
 
