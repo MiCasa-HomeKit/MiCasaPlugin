@@ -17,7 +17,6 @@
 import Foundation
 import HAP
 
-
 /**
   This is the base class for general MiCasa plugins.
 
@@ -32,7 +31,6 @@ open class MiCasaPlugin: Hashable {
 
   public private(set) var apiGateway: ApiGateway
 
-
   // MARK: - Initialization
 
   /**
@@ -46,7 +44,6 @@ open class MiCasaPlugin: Hashable {
     self.apiGateway = gateway
   }
 
-
   // MARK: - Hashable
 
   public static func == (lhs: MiCasaPlugin, rhs: MiCasaPlugin) -> Bool {
@@ -56,7 +53,6 @@ open class MiCasaPlugin: Hashable {
   open func hash(into hasher: inout Hasher) {
     fatalError("You have to override the method `hash(into:)`.")
   }
-
 
   // MARK: - API
 

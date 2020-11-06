@@ -45,7 +45,6 @@ open class MiCasaPluginBuilder<PluginType: MiCasaPlugin> {
   public init() {
   }
 
-
   // MARK: - Plugin Properties
 
   /// The plugin id. The id must be unique and constant; it mustn't change.
@@ -67,7 +66,6 @@ open class MiCasaPluginBuilder<PluginType: MiCasaPlugin> {
   open var description: String {
     return "\(pluginName)-\(pluginVersion)(\(pluginId))"
   }
-
 
   // MARK: - Initialization
 

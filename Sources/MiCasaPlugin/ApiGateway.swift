@@ -31,7 +31,6 @@ public protocol ApiGateway {
   /// Restart MiCasa
   func restart()
 
-
   // MARK: - Logging
 
   /**
